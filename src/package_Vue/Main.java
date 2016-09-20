@@ -34,7 +34,7 @@ public class Main {
 		//(parcours Resultset)
 		try {
 			while (result.next()){
-				System.out.println(result.getString("Force"));
+				System.out.println(result.getString("Force"));//on affiche les résultats
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();//gestion des exceptions
