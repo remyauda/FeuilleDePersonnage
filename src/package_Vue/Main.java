@@ -37,8 +37,8 @@ public class Main {
 				System.out.println(result.getString("Force"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}	
+			e.printStackTrace();//gestion des exceptions
+		}
 
 		//db.makePreparedQueryUpdate("INSERT INTO `feuilledepersonnage`.`descriptioncaracteristique` (`Force`, `Dexterite`, `Constitution`, `Intelligence`, `Sagesse`, `Charisme`) VALUES ('', 'ninja!', '', '', '', '');");
 		//db.makeQueryUpdate("INSERT INTO `feuilledepersonnage`.`descriptioncaracteristique` (`Force`, `Dexterite`, `Constitution`, `Intelligence`, `Sagesse`, `Charisme`) VALUES ('', 'ninja!', '', '', '', '');");
