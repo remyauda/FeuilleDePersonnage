@@ -7,19 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Gestion_DB.
- */
 public class Gestion_DB {
 
-	/** The connect. */
 	//******ATTRIBUT******
 	private static Connection connect;//crée un objet de type Connection qui appartient à l'api java
 
-	/**
-	 * Instantiates a new gestion DB.
-	 */
 	//******CONSTRUCTEUR PAR DEFAUT******
 	public Gestion_DB(){
 		Singleton singleton =new Singleton();
@@ -31,11 +23,6 @@ public class Gestion_DB {
 
 	//******METHODE DE CLASSE******
 
-	/**
-	 * Lire descriptioncaracteristique.
-	 *
-	 * @param caracteristique the caracteristique
-	 */
 	//Lit la table descriptioncaracteristique et print la caractéristique en paramètre (une des colonnes de la table descriptioncaracteristique).
 	public void lireDescriptioncaracteristique(String caracteristique){
 		String query="SELECT * FROM descriptioncaracteristique";
@@ -52,12 +39,6 @@ public class Gestion_DB {
 
 
 
-	/**
-	 * Make prepared query search.
-	 *
-	 * @param query the query
-	 * @return the result set
-	 */
 	//Execute une requête de recherche via PreparedStatement
 	public ResultSet makePreparedQuerySearch(String query){
 		ResultSet result=null;
@@ -72,11 +53,6 @@ public class Gestion_DB {
 		return result;//on retourne la table qui est retournée par l'exécution de la query (requête).
 	}
 
-	/**
-	 * Make prepared query update.
-	 *
-	 * @param query the query
-	 */
 	//Execute une requête de modification (INSERT, UPDATE, DELETE) via PreparedStatement
 	public void makePreparedQueryUpdate(String query){
 		//Exécution requête
@@ -90,12 +66,6 @@ public class Gestion_DB {
 	}
 
 
-	/**
-	 * Make query search.
-	 *
-	 * @param query the query
-	 * @return the result set
-	 */
 	//Execute une requête de recherche via ResultSet
 	public ResultSet makeQuerySearch(String query){
 		Statement state=null;
@@ -116,11 +86,6 @@ public class Gestion_DB {
 		return result;//on retourne la table qui est retournée par l'exécution de la query (requête).
 	}
 
-	/**
-	 * Make query update.
-	 *
-	 * @param query the query
-	 */
 	//Execute une requête de modification (INSERT, UPDATE, DELETE) via ResultSet
 	public void makeQueryUpdate(String query){
 		Statement state=null;

@@ -7,17 +7,8 @@ import package_Controleur.GenerateurDeDes;
 import package_Model.Gestion_DB;
 
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Main.
- */
 public class Main {
 
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
 	public static void main(String[] args) {
 
 
@@ -33,12 +24,25 @@ public class Main {
 
 		//(parcours Resultset)
 		try {
-			while (result.next()){
-				System.out.println(result.getString("Force"));//on affiche les résultats
+			while(result.next()){
+				System.out.println(result.getString("description"));
+				System.out.println("\n/************************/\n");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();//gestion des exceptions
-		}
+			e.printStackTrace();
+		}	
+		
+		
+		/*
+		 *Pour écrire que la colonne Force
+		 * try {
+			result.absolute(1);
+				System.out.println(result.getString("description"));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		*/
 
 		//db.makePreparedQueryUpdate("INSERT INTO `feuilledepersonnage`.`descriptioncaracteristique` (`Force`, `Dexterite`, `Constitution`, `Intelligence`, `Sagesse`, `Charisme`) VALUES ('', 'ninja!', '', '', '', '');");
 		//db.makeQueryUpdate("INSERT INTO `feuilledepersonnage`.`descriptioncaracteristique` (`Force`, `Dexterite`, `Constitution`, `Intelligence`, `Sagesse`, `Charisme`) VALUES ('', 'ninja!', '', '', '', '');");
