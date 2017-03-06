@@ -19,17 +19,24 @@ public class Singleton {
 
 
 	//******CONSTRUCTEUR PAR DEFAUT******
-	public Singleton(){
+	private Singleton(){
 		this("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/feuilledepersonnage", "root", "Kaleidoscope98", null);
 	}
 
 	//******CONSTRUCTEUR A PARAMETRE******
-	public Singleton(String pilote, String url, String login, String passord, Connection connect){
+	private Singleton(String pilote, String url, String login, String passord, Connection connect){
 		Singleton.pilote=pilote;
 		Singleton.url=url;
 		Singleton.login=login;
 		Singleton.passord=passord;
 		Singleton.connect=connect;
+	}
+	
+	/** Holder */
+	private static class SingletonHolder
+	{		
+		/** Instance unique non préinitialisée */
+		private final static Singleton instance = new Singleton();
 	}
 
 	//******GETTER AND SETTER******
@@ -84,6 +91,7 @@ public class Singleton {
 
 
 	//******METHODE DE CLASSE******
+	
 	public Connection getConnexion(){
 
 		if(connect==null){//si l'attibut est à null, c'est qu'il n'y a pas eu de connection précédemment: on se connecte donc
@@ -94,11 +102,8 @@ public class Singleton {
 				connect=DriverManager.getConnection(url, login, passord);
 			}  
 			// gestion des exceptions
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
+			catch (SQLException | ClassNotFoundException e) {
+				System.out.println("Error. Cause: "+e.getCause()+". Message: "+e.getMessage());;
 			}
 		}
 		else{//sinon si l'objet connect est déja initialisé, c'est que l'on c'est déja connecté donc on a pas besoin de se reconnecter.
@@ -107,7 +112,11 @@ public class Singleton {
 		return connect;	//retourne la connexion du type Connection qui appertient à l'api java
 	}
 
-
+	/** Point d'accès pour l'instance unique du singleton */
+	public static Singleton getInstance()
+	{
+		return SingletonHolder.instance;
+	}
 
 
 }
