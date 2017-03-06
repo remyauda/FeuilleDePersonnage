@@ -15,7 +15,9 @@ public class Gestion_DB {
 	//******CONSTRUCTEUR PAR DEFAUT******
 	public Gestion_DB(){
 		Singleton singleton = Singleton.getInstance();
+
 		Gestion_DB.connect=singleton.getConnexion();//on se connecte à la base de données. (on initialise la connexion)
+
 	}
 
 	//******CONSTRUCTEUR A PARAMETRE******

@@ -20,7 +20,7 @@ public class Singleton {
 
 	//******CONSTRUCTEUR PAR DEFAUT******
 	private Singleton(){
-		this("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/feuilledepersonnage", "root", "Kaleidoscope98", null);
+		this("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/feuilledepersonnage", "user_Pers", "c9SDBsTzbeAUqHB2", null);
 	}
 
 	//******CONSTRUCTEUR A PARAMETRE******
@@ -36,7 +36,7 @@ public class Singleton {
 	private static class SingletonHolder
 	{		
 		/** Instance unique non préinitialisée */
-		private final static Singleton instance = new Singleton();
+		private static final Singleton instance = new Singleton();
 	}
 
 	//******GETTER AND SETTER******
@@ -103,7 +103,7 @@ public class Singleton {
 			}  
 			// gestion des exceptions
 			catch (SQLException | ClassNotFoundException e) {
-				System.out.println("Error. Cause: "+e.getCause()+". Message: "+e.getMessage());;
+				System.out.println("Error. Cause: "+e.getCause()+". Message: "+e.getMessage());
 			}
 		}
 		else{//sinon si l'objet connect est déja initialisé, c'est que l'on c'est déja connecté donc on a pas besoin de se reconnecter.
